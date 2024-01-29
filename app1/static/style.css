@@ -1,0 +1,15 @@
+td,
+table th {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+thead {
+  color: #fff;
+}
+tbody td {
+  font-weight: 500;
+  color: rgba(255,255,255,.65);
+}
+

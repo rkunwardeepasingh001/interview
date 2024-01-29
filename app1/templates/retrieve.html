@@ -1,0 +1,248 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="app1/static/style.css">
+    <title>Interview-Project</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+<style>
+  #t1{
+    background-color:rgb(123, 125, 125);
+  }
+  h2{
+    color: #000;
+  }
+  thead{
+    background-color:rgb(101, 117, 117);
+  }
+
+
+</style>
+<body >
+  <section class="intro">
+    <div class="bg-image h-100" style="background-image: url('https://mdbootstrap.com/img/Photos/new-templates/tables/img2.jpg');">
+<div class="mask d-flex align-items-center h-100" style="background-color: rgba(0,0,0,.25);">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-12">
+<div class="card bg-dark shadow-2-strong">
+<div class="card-body">
+<div class="table-responsive">
+<table class="table table-dark table-borderless mb-0">
+  
+
+  <table class="table table-bordered"id="t1"style="table-layout:fixed" align="center">
+    <thead >
+      <h2 align="center"> -:DATA-TABLE-User-Model:- </h2><br>
+      <tr>
+        <th>first_name</th>
+        <th>last_name</th>
+        <th>username</th>
+        <th>password</th>
+        <th>email</th>
+        <th>update</th>
+        <th>delete</th>
+      </tr>
+    </thead>
+  <tbody>
+    {% for obj1 in datauser %} 
+      <tr>
+        <td>{{obj1.first_name}}</td>
+        <td>{{obj1.last_name}}</td>
+        <td>{{obj1.username}}</td>
+        <td>{{obj1.password}}</td>
+        <td>{{obj1.email}}</td>
+        <td><a href="/update/{{obj1.id}}/"><i class="fa fa-edit" style="font-size:30px;color: green;"></i></a></td>
+        <td><a href="/delete/{{obj1.id}}/"><i class="fa fa-trash-o" style="font-size:30px;color:red"></i>
+        </a></td>
+      </tr>   
+    {% endfor %}
+  </tbody>  
+</table>
+<h3 align="center">click hear to add user data - <button><a href="{% url 'createuser' %}">Create</a></button> </h3><br><br>
+  </div>
+
+  
+  <div class="container">
+  <table class="table table-bordered"id="t1"style="table-layout:fixed" align="center">
+      <thead >
+        <h2 align="center" > -:DATA-TABLE-BDE-Model:- </h2><br>
+        <tr>
+          <th>name</th>
+          <th>update</th>
+          <th>delete</th>
+        </tr>
+      </thead>
+    <tbody>
+      {% for obj in data %} 
+        <tr>
+          <td>{{obj.bde_name}}</td>
+          <td><a href="/update/bde/{{obj.id}}/"><i class="fa fa-edit" style="font-size:30px;color: green;"></i></a></td>
+          <td><a href="/delete/bde/{{obj.id}}/"><i class="fa fa-trash-o" style="font-size:30px;color:red"></i>
+          </a></td>
+        </tr>   
+      {% endfor %}
+    </tbody>
+  </table>
+  <h3 align="center">click hear to add user data - <button><a href="{% url 'createBDE' %}">Create</a></button> </h3><br><br>
+  </div>
+
+
+  <div class="container">
+  <table class="table table-bordered" id="t1"style="table-layout:fixed"align="center">
+    <thead >
+      <h2 align="center"> -:DATA-TABLE-DEVELOPER-Model:- </h2><br>
+      <tr>
+        <th>name</th>
+        <th>update</th>
+        <th>delete</th>
+      </tr>
+    </thead>
+  <tbody>
+    {% for obj1 in datadeveloper %} 
+      <tr>
+        <td>{{obj1.developer_name}}</td>
+        <td><a href="/update/developer/{{obj1.id}}/"><i class="fa fa-edit" style="font-size:30px;color: green;"></i></a></td>
+        <td><a href="/delete/developer/{{obj1.id}}/"><i class="fa fa-trash-o" style="font-size:30px;color:red"></i>
+        </a></td>
+
+      </tr>   
+    {% endfor %}
+  </tbody>
+  </table>
+  <h3 align="center">click hear to add Developer data - <button><a href="{% url 'createDEVELOPER' %}">Create</a></button> </h3><br><br>
+  </div>
+
+  <div class="container">  
+  <table class="table table-bordered"id="t1"style="table-layout:fixed"align="center">
+    <thead >
+      <h2 align="center"> -:DATA-TABLE-Company-Model:- </h2><br>
+      <tr>
+        <th>company_name</th>
+        <th>location</th>
+        <th>update</th>
+        <th>delete</th>
+      </tr>
+    </thead>
+  <tbody>
+    {% for obj1 in company %} 
+      <tr>
+        <td>{{obj1.company_name}}</td>
+        <td>{{obj1.location}}</td>
+        <td><a href="/update/company/{{obj1.id}}/"><i class="fa fa-edit" style="font-size:30px;color: green;"></i></a></td>
+        <td><a href="/delete/company/{{obj1.id}}/"><i class="fa fa-trash-o" style="font-size:30px;color:red"></i>
+        </a></td>
+      </tr>   
+    {% endfor %}
+  </tbody>
+  </table>
+  <h3 align="center">click hear to add Company data - <button><a href="{% url 'createCompany' %}">Create</a></button> </h3><br><br>
+  </div>    
+
+  <div class="container">  
+  <table class="table table-bordered"id="t1"style="table-layout:fixed" align="center">
+    <thead>
+      <h2 align="center"> -:DATA-TABLE-Questions-Model:- </h2><br>
+      <tr>
+        <th>company_name</th>
+        <th>question</th>
+        <th>answer</th>
+        <th>technology</th>
+        <th>question_level</th>
+        <th>update</th>
+        <th>delete</th>
+      </tr>
+    </thead>
+  <tbody>
+    {% for obj1 in question %} 
+      <tr>
+        <td>{{obj1.company_name}}</td>
+        <td>{{obj1.question}}</td>
+        <td>{{obj1.answer}}</td>
+        <td>{{obj1.technology}}</td>
+        <td>{{obj1.question_level}}</td>
+        <td><a href="/update/question/{{obj1.id}}/"><i class="fa fa-edit" style="font-size:30px;color: green;"></i></a></td>
+        <td><a href="/delete/question/{{obj1.id}}/"><i class="fa fa-trash-o" style="font-size:30px;color:red"></i>
+        </a></td>
+      </tr>   
+    {% endfor %}
+  </tbody>
+  </table>
+  <h3 align="center">click hear to add Question data - <button><a href="{% url 'createQuestion' %}">Create</a></button> </h3><br><br>
+  </div>
+
+ <div class="container">
+  <table class="table table-bordered"id="t1"style="table-layout:fixed">
+    <thead>
+      <h2 align="center"> -:DATA-TABLE-Interview:- </h2><br>
+      <tr>
+        <th>company_name</th>
+        <th>scheduled_by</th>
+        <th>interview_mode</th>
+        <th>technology</th>
+        <th>Interview_rounds</th>
+        <th>interviewer_name</th>
+        <th>candidate_name</th>
+        <th>interview_type</th>
+        <th>date</th>
+        <th>created_date</th>
+        <th>updated_date</th>
+        <th>email</th>
+        <th>job_title</th>
+        <th>position</th>
+        <th>update</th>
+        <th>delete</th>
+      </tr>
+    </thead>
+  <tbody>
+    {% for obj1 in interview %} 
+      <tr>
+        <td>{{obj1.company_name}}</td>
+        <td>{{obj1.scheduled_by}}</td>
+        <td>{{obj1.interview_mode}}</td>
+        <td>{{obj1.technology}}</td>
+        <td>{{obj1.Interview_rounds}}</td>
+        <td>{{obj1.interviewer_name}}</td>
+        <td>{{obj1.candidate_name}}</td>
+        <td>{{obj1.interview_type}}</td>
+        <td>{{obj1.date}}</td>
+        <td>{{obj1.created_date}}</td>
+        <td>{{obj1.updated_date}}</td>
+        <td>{{obj1.email}}</td>
+        <td>{{obj1.job_title}}</td>
+        <td>{{obj1.position}}</td>
+        <td><a href="/update/interview/{{obj1.id}}/"><i class="fa fa-edit" style="font-size:30px;color: green;"></i></a></td>
+        <td><a href="/delete/interview/{{obj1.id}}/"><i class="fa fa-trash-o" style="font-size:30px;color:red"></i>
+          
+        </a></td>
+      </tr>   
+    {% endfor %}
+  </tbody>
+  </table>
+  <h3 align="center">click hear to add Interview data - <button><a href="{% url 'createInterview' %}">Create</a></button> </h3>
+  </div>
+</body>
+
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</html>
+
+
